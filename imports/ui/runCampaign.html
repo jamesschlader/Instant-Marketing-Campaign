@@ -1,6 +1,31 @@
 <template name="runCampaign">
-  <form>
-    <input type="text" placeholder="Enter some text" class="uk-input" />
+  <form class="uk-padding">
+    <div class="uk-padding uk-display-inline-block">
+      <input type="radio" name="campaign" value="1" class="uk-radio" /><span>
+        Lazy</span
+      >
+    </div>
+
+    <div class="uk-padding uk-display-inline-block">
+      <input type="radio" name="campaign" value="10" class="uk-radio" checked />
+      <span> Basic</span>
+    </div>
+    <div class="uk-padding uk-display-inline-block">
+      <input type="radio" name="campaign" value="100" class="uk-radio" /><span>
+        Active</span
+      >
+    </div>
+    <div class="uk-padding uk-display-inline-block">
+      <input type="radio" name="campaign" value="500" class="uk-radio " /><span>
+        Aggressive</span
+      >
+    </div>
+    <div class="uk-padding uk-display-inline-block">
+      <input type="radio" name="campaign" value="1000" class="uk-radio" /><span>
+        Very Aggressive</span
+      >
+    </div>
+
     <button class="uk-button">Start</button>
   </form>
 </template>

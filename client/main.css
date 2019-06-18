@@ -1,4 +1,4 @@
-@import "./uikit-3.0.0-rc.25/css/uikit-rtl.min.css";
+@import "./uikit-3.1.5/css/uikit-rtl.min.css";
 
 body {
   background: blueviolet;
@@ -9,4 +9,14 @@ body {
   z-index: 1;
   background: white;
   height: 100vh;
+}
+
+.delete:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.home:hover {
+  cursor: pointer;
+  color: green;
 }

@@ -1,10 +1,13 @@
 <template name="showCustomers">
-  <table class="uk-table">
+  <table
+    class="uk-table uk-box-shadow-medium uk-table-hover uk-responsive-width"
+  >
     <caption>
-      Customers
+      <h5>Customers</h5>
     </caption>
     <thead>
       <tr>
+        <th>Remove</th>
         <th>Created</th>
         <th>Active</th>
         <th>First Name</th>
@@ -15,7 +18,17 @@
     </thead>
     <tbody>
       {{#each customers}}
-      {{>customer}}
+      <tr>
+        <td><span class="delete" uk-icon="close"></span></td>
+        <td>{{ formatDate(createdAt) }}</td>
+        <td>{{#if active }}<span uk-icon="icon: checked"></span>{{/if}}</td>
+        <td>
+          {{ firstName }}
+        </td>
+        <td>{{ lastName }}</td>
+        <td>{{ telephone }}</td>
+        <td><span class="home" uk-icon="home"></span></td>
+      </tr>
       {{/each}}
     </tbody>
   </table>
