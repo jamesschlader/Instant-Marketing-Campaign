@@ -1,0 +1,22 @@
+<template name="showCustomers">
+  <table class="uk-table">
+    <caption>
+      Customers
+    </caption>
+    <thead>
+      <tr>
+        <th>Created</th>
+        <th>Active</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Telephone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each customers}}
+      {{>customer}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

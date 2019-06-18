@@ -1,0 +1,12 @@
+@import "./uikit-3.0.0-rc.25/css/uikit-rtl.min.css";
+
+body {
+  background: blueviolet;
+  height: 100vh;
+}
+
+.container {
+  z-index: 1;
+  background: white;
+  height: 100vh;
+}
