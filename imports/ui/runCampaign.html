@@ -28,4 +28,13 @@
 
     <button class="uk-button">Start</button>
   </form>
+
+  <h5>New Customers Count = {{ newbiesCount }}</h5>
+  <ul class="uk-list">
+    {{#each newbie in newbies}}
+    <li>
+      {{ newbie.firstName }} {{ newbie.lastName }} added to our customer base.
+    </li>
+    {{/each}}
+  </ul>
 </template>

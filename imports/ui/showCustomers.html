@@ -4,16 +4,17 @@
   >
     <caption>
       <h5>Customers</h5>
+      <p>Total customer count = {{ customerCount }}</p>
     </caption>
     <thead>
       <tr>
         <th>Remove</th>
-        <th>Created</th>
-        <th>Active</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Telephone</th>
-        <th>Address</th>
+        <th id="created">Created</th>
+        <th id="active">Active</th>
+        <th id="first">First Name</th>
+        <th id="last">Last Name</th>
+        <th id="phone">Telephone</th>
+        <th id="address">Address</th>
       </tr>
     </thead>
     <tbody>
@@ -21,13 +22,26 @@
       <tr>
         <td><span class="delete" uk-icon="close"></span></td>
         <td>{{ formatDate(createdAt) }}</td>
-        <td>{{#if active }}<span uk-icon="icon: checked"></span>{{/if}}</td>
+        <td>{{#if active }}<span uk-icon="checked"></span>{{/if}}</td>
         <td>
           {{ firstName }}
         </td>
         <td>{{ lastName }}</td>
         <td>{{ telephone }}</td>
-        <td><span class="home" uk-icon="home"></span></td>
+        <td>
+          {{#if showing this._id}}
+          <ul class="uk-list">
+            <li>{{ address.streetAddress }}</li>
+            <li>{{ address.city }}, {{ address.state }} {{ address.zip }}</li>
+            <li>{{ address.county }}</li>
+            <li>Longitude: {{ address.long }}</li>
+            <li>Latitude: {{ address.lat }}</li>
+            <li><button class="uk-button-danger">Close</button></li>
+          </ul>
+          {{else}}
+          <span class="home" uk-icon="home"></span>
+          {{/if}}
+        </td>
       </tr>
       {{/each}}
     </tbody>
