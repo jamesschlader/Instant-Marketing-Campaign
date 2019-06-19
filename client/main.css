@@ -15,3 +15,11 @@
   cursor: pointer;
   color: green;
 }
+
+.active-toggle:hover {
+  cursor: pointer;
+}
+
+.save-toggle:hover {
+  cursor: pointer;
+}

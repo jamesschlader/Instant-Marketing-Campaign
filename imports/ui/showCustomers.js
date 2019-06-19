@@ -7,6 +7,7 @@ import { ReactiveDict } from "meteor/reactive-dict";
 Template.showCustomers.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   this.state.set("showing", []);
+  this.state.set("saving", []);
 });
 
 Template.showCustomers.helpers({
@@ -27,6 +28,17 @@ Template.showCustomers.helpers({
       return false;
     }
   },
+  saving(id) {
+    const instance = Template.instance();
+    if (instance.state.get("saving").length > 0) {
+      const result = instance.state.get("saving").filter(item => {
+        return item == id;
+      });
+      return result.length > 0 ? true : false;
+    } else {
+      return false;
+    }
+  },
   formatDate(date) {
     const dateString = `${month(
       date.getMonth()
@@ -35,6 +47,9 @@ Template.showCustomers.helpers({
   },
   customerCount() {
     return Customers.find({}).count();
+  },
+  showActive(bool) {
+    return bool ? "Yes" : "No";
   }
 });
 
@@ -54,5 +69,22 @@ Template.showCustomers.events({
       return item !== this._id;
     });
     instance.state.set("showing", filtered);
+  },
+  "click .active-toggle"(event) {
+    event.preventDefault();
+    Customers.update(this._id, { $set: { active: !this.active } });
+  },
+
+  "click .save-toggle"(event, instance) {
+    event.preventDefault();
+    const savings = instance.state.get("saving");
+    if (savings.includes(this._id)) {
+      const filtered = savings.filter(item => {
+        return item !== this._id;
+      });
+      instance.state.set("saving", filtered);
+    } else {
+      instance.state.set("saving", [...instance.state.get("saving"), this._id]);
+    }
   }
 });

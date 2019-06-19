@@ -1,36 +1,18 @@
 <template name="runCampaign">
   <form class="uk-padding">
-    <div class="uk-padding uk-display-inline-block">
-      <input type="radio" name="campaign" value="1" class="uk-radio" /><span>
-        Lazy</span
-      >
-    </div>
-
-    <div class="uk-padding uk-display-inline-block">
-      <input type="radio" name="campaign" value="10" class="uk-radio" checked />
-      <span> Basic</span>
-    </div>
-    <div class="uk-padding uk-display-inline-block">
-      <input type="radio" name="campaign" value="100" class="uk-radio" /><span>
-        Active</span
-      >
-    </div>
-    <div class="uk-padding uk-display-inline-block">
-      <input type="radio" name="campaign" value="500" class="uk-radio " /><span>
-        Aggressive</span
-      >
-    </div>
-    <div class="uk-padding uk-display-inline-block">
-      <input type="radio" name="campaign" value="1000" class="uk-radio" /><span>
-        Very Aggressive</span
-      >
-    </div>
-
+    <input
+      name="campaign"
+      type="text"
+      placeholder="How many new customers do you want out of this campaign?"
+      class="uk-input"
+    />
     <button class="uk-button">Start</button>
+    <span>{{ validateError }}</span>
   </form>
 
   <h5>New Customers Count = {{ newbiesCount }}</h5>
-  <ul class="uk-list">
+
+  <ul class="uk-list ">
     {{#each newbie in newbies}}
     <li>
       {{ newbie.firstName }} {{ newbie.lastName }} added to our customer base.

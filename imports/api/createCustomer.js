@@ -14,6 +14,7 @@ export const customer = () => {
       city: faker.address.city(),
       county: faker.address.county(),
       state: faker.address.state(),
+      zip: faker.address.zipCode(),
       long: faker.address.longitude(),
       lat: faker.address.latitude()
     }

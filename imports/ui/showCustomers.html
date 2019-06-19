@@ -8,21 +8,28 @@
     </caption>
     <thead>
       <tr>
-        <th>Remove</th>
+        <th>Save to file</th>
         <th id="created">Created</th>
         <th id="active">Active</th>
         <th id="first">First Name</th>
         <th id="last">Last Name</th>
         <th id="phone">Telephone</th>
         <th id="address">Address</th>
+        <th>Remove</th>
       </tr>
     </thead>
     <tbody>
       {{#each customers}}
       <tr>
-        <td><span class="delete" uk-icon="close"></span></td>
+        <td class="save-toggle">
+          {{#if saving this._id
+
+
+          }}<span class="nevermind" uk-icon="check"></span>
+          {{/if}}
+        </td>
         <td>{{ formatDate(createdAt) }}</td>
-        <td>{{#if active }}<span uk-icon="checked"></span>{{/if}}</td>
+        <td class="active-toggle">{{ showActive active}}</td>
         <td>
           {{ firstName }}
         </td>
@@ -32,7 +39,11 @@
           {{#if showing this._id}}
           <ul class="uk-list">
             <li>{{ address.streetAddress }}</li>
-            <li>{{ address.city }}, {{ address.state }} {{ address.zip }}</li>
+            <li>{{ address.secondaryAddress }}</li>
+            <li>
+              {{ address.city }}, {{ address.state }}
+              <span>{{ address.zip }}</span>
+            </li>
             <li>{{ address.county }}</li>
             <li>Longitude: {{ address.long }}</li>
             <li>Latitude: {{ address.lat }}</li>
@@ -42,6 +53,7 @@
           <span class="home" uk-icon="home"></span>
           {{/if}}
         </td>
+        <td><span class="delete" uk-icon="close"></span></td>
       </tr>
       {{/each}}
     </tbody>
