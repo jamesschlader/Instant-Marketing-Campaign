@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.3.4",
     "faker": "^4.1.0",
+    "fs": "0.0.1-security",
     "meteor-node-stubs": "^0.4.1"
   },
   "meteor": {

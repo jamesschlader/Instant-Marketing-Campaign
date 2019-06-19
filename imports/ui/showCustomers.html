@@ -5,7 +5,13 @@
     <caption>
       <h5>Customers</h5>
       <p>Total customer count = {{ customerCount }}</p>
+      <div>
+        <button class="uk-button uk-button-primary save-customers">
+          Move Selected Customers to a File
+        </button>
+      </div>
     </caption>
+
     <thead>
       <tr>
         <th>Save to file</th>
@@ -23,7 +29,6 @@
       <tr>
         <td class="save-toggle">
           {{#if saving this._id
-
 
           }}<span class="nevermind" uk-icon="check"></span>
           {{/if}}

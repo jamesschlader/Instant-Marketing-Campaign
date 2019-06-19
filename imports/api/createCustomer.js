@@ -3,7 +3,7 @@ import faker from "faker";
 export const customer = () => {
   return {
     createdAt: new Date(),
-    updatedAt: this.createdAt,
+    updatedAt: new Date(),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     active: true,

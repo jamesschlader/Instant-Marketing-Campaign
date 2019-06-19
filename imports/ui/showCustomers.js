@@ -86,5 +86,17 @@ Template.showCustomers.events({
     } else {
       instance.state.set("saving", [...instance.state.get("saving"), this._id]);
     }
+  },
+
+  "click .save-customers"(event, instance) {
+    event.preventDefault();
+    const customerIds = instance.state.get("saving");
+
+    const results = Customers.find({}).fetch();
+    const customerData = results.filter(item => {
+      return customerIds.includes(item._id) ? item : null;
+    });
+    console.log(customerData);
+   
   }
 });

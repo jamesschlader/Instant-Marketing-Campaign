@@ -29,7 +29,7 @@ Template.runCampaign.events({
     event.preventDefault();
     const { target } = event;
     let { value } = target.campaign;
-    console.log(value.search(/\D/g));
+
     if (value.search(/\D/) >= 0) {
       target.campaign.value = "";
       instance.state.set("valErr", "Choose only numbers.");
@@ -37,7 +37,7 @@ Template.runCampaign.events({
       return;
     } else {
       let newCustomers = [];
-      console.log(parseInt(value));
+
       for (let i = 1; i < parseInt(value) + 1; i++) {
         const newCustomer = customer();
         newCustomers.push(newCustomer);
